@@ -3,7 +3,7 @@ const db = require("../config/db");
 const getAllCategories = async (req, res) => {
     try {
         const allCategories =
-            "SELECT subCat.id, cat.name AS catName, subCat.name AS subCatName, subCat.imageLink FROM category AS cat RIGHT JOIN subCategory AS subCat ON cat.id = subCat.categoryId";
+            "SELECT subCat.id, cat.name AS catName, subCat.name AS subCatName, imageLink FROM category AS cat RIGHT JOIN subCategory AS subCat ON cat.id = subCat.categoryId";
         db.query(allCategories, [], async (err, data) => {
             if (err) {
                 return res.status(401).json({ error: "Something went wrong" });

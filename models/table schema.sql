@@ -34,7 +34,7 @@ CREATE TABLE subCategory (
 CREATE TABLE brand (
 	id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
-    totalSold INT,
+    sold INT,
     logo VARCHAR(255) DEFAULT NULL,
     tagline VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (id)

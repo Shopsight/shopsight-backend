@@ -15,4 +15,21 @@ const getTopBrands = async (req, res) => {
     }
 };
 
+const getBrandProducts = async (req, res) => {
+    try {
+        const brandId = req.params.brandId;
+        const getProducts =
+            "SELECT brand.name AS brandName, product.imageLink, product.name, product.id FROM brand RIGHT JOIN product ON brand.id = product.brandId WHERE brand.id = ?";
+        db.query(getProducts, [brandId], async (err, data) => {
+            if (err) {
+                return res.status(401).json({ error: "Something went wrong" });
+            }
+            res.status(200).json({ products: data });
+        });
+    } catch (err) {
+        res.status(500).json({ error: "Something went wrong" });
+    }
+};
+
 module.exports.getTopBrands = getTopBrands;
+module.exports.getBrandProducts = getBrandProducts;

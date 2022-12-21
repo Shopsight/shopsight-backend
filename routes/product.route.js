@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const { getCategoryProducts } = require("../controllers/auth.controller");
+const { getProductInfo } = require("../controllers/product.controller");
 
-router.get("/:category", getCategoryProducts);
+router.get("/:productId", getProductInfo);
 
 module.exports = router;
