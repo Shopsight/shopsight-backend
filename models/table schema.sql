@@ -13,6 +13,7 @@ CREATE TABLE mall (
 	id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     imageLink VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -39,6 +40,7 @@ CREATE TABLE brand (
     tagline VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (id)
 );
+-- DROP TABLE product;
 
 CREATE TABLE product (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -50,6 +52,8 @@ CREATE TABLE product (
     brandId INT NOT NULL,
     mallId INT NOT NULL,
     subCategoryId INT NOT NULL,
+    imageLink VARCHAR(255),
+    description VARCHAR(255),
     PRIMARY KEY (id),
     FOREIGN KEY (brandId) REFERENCES brand(id),
     FOREIGN KEY (mallId) REFERENCES mall(id),
@@ -72,5 +76,12 @@ INSERT INTO subCategory (name,categoryId,imageLink)
 VALUES ('Kurta',1,'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png'),
 ('Digital Watch',3,'https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png');
 
-INSERT INTO product (name, color, size, price, discount, subCategoryId)
-VALUE ('Jeans', '["R", "G", "B"]', '["S", "M"]', 'Raymond', 200, 2, 1);
+INSERT INTO mall (name,imageLink,location)
+VALUES ('Ambuja','https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png','Raipur');
+
+INSERT INTO product (name, color, size, price, discount, brandId, mallId, subCategoryId, imageLink, description)
+VALUES ('Jeans', '["Red", "Green", "Yellow"]', '["S", "M", "XL"]', 150, 2, 1, 1, 1, 'https://i.ibb.co/S6qMxwr/jean.jpg"','This is the best jeans you will ever encounter'),
+('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', 500, 5, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see');
+
+SELECT * FROM product;
+SELECT product.name, product.imageLink, color, size, mall.name AS mallName, mall.location FROM product LEFT JOIN mall ON product.mallId = mall.id WHERE product.id = 1;
