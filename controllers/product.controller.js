@@ -4,7 +4,7 @@ const getProductInfo = async (req, res) => {
     try {
         const productId = req.params.productId;
         const productInfo =
-            "SELECT product.name, product.imageLink, color, size, price, description, mall.name AS mallName, mall.location FROM product LEFT JOIN mall ON product.mallId = mall.id WHERE product.id = ?";
+            "SELECT product.name, product.imageLink AS imageLink, color, size, price, description, mall.name AS mallName, mall.location, brand.name AS brandName FROM product LEFT JOIN mall ON product.mallId = mall.id LEFT JOIN brand ON product.brandId = brand.id WHERE product.id = ?";
         db.query(productInfo, [productId], async (err, data) => {
             if (err) {
                 return res.status(401).json({ error: "Something went wrong" });
