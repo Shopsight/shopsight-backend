@@ -2,13 +2,18 @@
 CREATE DATABASE shopsight;
 use shopsight;
 
+-- DROP TABLE user;
+
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
 	email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    favourites json DEFAULT NULL,
     name VARCHAR(255),
     PRIMARY KEY (id)
 );
+
+SELECT * FROM user;
 
 CREATE TABLE mall (
 	id INT NOT NULL AUTO_INCREMENT,

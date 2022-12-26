@@ -34,10 +34,10 @@ const registerUser = async (req, res) => {
                     return res.status(500).json({ error: "Something went wrong" });
                 }
                 const accessToken = generateAccessToken(data.insertId);
-                return res.status(201).json({
+                return res.status(200).json({
                     success: "Succesfully created account",
                     accessToken: accessToken,
-                    id: data.insertId,
+                    email: email,
                 });
             });
         });
