@@ -40,13 +40,15 @@ CREATE TABLE brand (
     tagline VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (id)
 );
--- DROP TABLE product;
+DROP TABLE product;
 
 CREATE TABLE product (
 	id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    color JSON,
-    size JSON,
+    color JSON DEFAULT NULL,
+    size JSON DEFAULT NULL,
+    material JSON DEFAULT NULL,
+    type INT NOT NULL,
     price INT NOT NULL,
     brandId INT NOT NULL,
     mallId INT NOT NULL,
@@ -79,7 +81,8 @@ INSERT INTO mall (name,imageLink,location)
 VALUES ('Ambuja','https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png','Raipur');
 
 INSERT INTO product (name, color, size, price, brandId, mallId, subCategoryId, imageLink, description)
-VALUES ('Collet Pants', '["Red", "Black", "Yellow"]', '["S", "M", "L"]', 1150, 1, 1, 1, 'https://i.ibb.co/C7WGVr0/1.png','This is the best jeans you will ever encounter'),
+VALUES
+('Collet Pants', '["Red", "Black", "Yellow"]', '["S", "M", "L"]', 1150, 1, 1, 1, 'https://i.ibb.co/C7WGVr0/1.png','This is the best jeans you will ever encounter'),
 ('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
 ('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
 ('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
@@ -87,4 +90,6 @@ VALUES ('Collet Pants', '["Red", "Black", "Yellow"]', '["S", "M", "L"]', 1150, 1
 ('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see');
 
 SELECT * FROM product;
+
+SELECT * FROM subCategory;
 SELECT product.name, product.imageLink, color, size, mall.name AS mallName, mall.location FROM product LEFT JOIN mall ON product.mallId = mall.id WHERE product.id = 1;
