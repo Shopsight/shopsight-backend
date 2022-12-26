@@ -13,7 +13,10 @@ CREATE TABLE user (
     PRIMARY KEY (id)
 );
 
-SELECT * FROM user;
+
+-- UPDATE user SET favourites = '["1","2"]' WHERE id = 1;
+
+-- DELETE FROM user WHERE id = 3;
 
 CREATE TABLE mall (
 	id INT NOT NULL AUTO_INCREMENT,
