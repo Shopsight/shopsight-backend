@@ -15,6 +15,21 @@ const getTopBrands = async (req, res) => {
     }
 };
 
+const getAllBrands = async (req, res) => {
+    try {
+        const getBrands = "SELECT * FROM brand";
+        db.query(getBrands, [], async (err, data) => {
+            if (err) {
+                return res.status(401).json({ error: "Something went wrong" });
+            }
+            console.log(data);
+            return res.status(200).json({ brands: data });
+        });
+    } catch (err) {
+        res.status(500).json({ error: "Something went wrong" });
+    }
+};
+
 const getBrandProducts = async (req, res) => {
     try {
         const brandId = req.params.brandId;
@@ -39,4 +54,5 @@ const getBrandProducts = async (req, res) => {
 };
 
 module.exports.getTopBrands = getTopBrands;
+module.exports.getAllBrands = getAllBrands;
 module.exports.getBrandProducts = getBrandProducts;
