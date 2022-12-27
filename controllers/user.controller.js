@@ -35,5 +35,41 @@ const updateFavourites = async (req, res) => {
     }
 };
 
+const getFavourites = async (req, res) => {
+    try {
+        const id = req.user.id;
+        const findUser = "SELECT * FROM user WHERE id = ?";
+        const products = "SELECT * FROM product";
+        db.query(findUser, [id], (err, data) => {
+            if (err) {
+                return res.status(401).json({ error: "Something went wrong" });
+            }
+            if (data.length === 0) {
+                return res.status(401).json({ error: "No user found" });
+            }
+            if (data[0].favourites === null) {
+                return res
+                    .status(200)
+                    .json({ name: data[0].name, email: data[0].email, favourites: null });
+            }
+            let favs = new Set(JSON.parse(data[0].favourites));
+            db.query(products, [], (e, d) => {
+                if (e) {
+                    return res.status(401).json({ error: "Something went wrong" });
+                }
+                const favProducts = d.filter((prod) => {
+                    return favs.has(String(prod.id));
+                });
+                return res
+                    .status(200)
+                    .json({ name: data[0].name, email: data[0].email, favourites: favProducts });
+            });
+        });
+    } catch (err) {
+        res.status(500).json({ error: "Something went wrong" });
+    }
+};
+
 module.exports.userInfo = userInfo;
 module.exports.updateFavourites = updateFavourites;
+module.exports.getFavourites = getFavourites;
