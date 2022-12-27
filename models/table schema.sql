@@ -89,7 +89,7 @@ VALUES
 ('T-Shirt',1,'https://i.ibb.co/r34J1WY/Tshirt-women.jpg',0),
 ('Top',1,'https://i.ibb.co/tJWkK3w/Top-women.webp',0),
 ('Jeans',1,'https://i.ibb.co/g96Vn0T/Jeans-women.jpg',0),
-('Suit',1,'https://i.ibb.co/dG510BV/Suit-male.jpg',0),
+('Jacket',1,'https://i.ibb.co/fY0yFZ2/Jacket-women.jpg',0),
 ('Saree',1,'https://i.ibb.co/M1ypmHj/Saree-women.jpg',0),
 -- Footwear
 ('Sports',2,'https://i.ibb.co/yqH7J3z/Sports-men.jpg',1),
