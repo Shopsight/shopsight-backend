@@ -44,9 +44,7 @@ CREATE TABLE subCategory (
 CREATE TABLE brand (
 	id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
-    sold INT,
     logo VARCHAR(255) DEFAULT NULL,
-    tagline VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (id)
 );
 -- DROP TABLE product;
@@ -73,10 +71,12 @@ CREATE TABLE product (
 INSERT INTO category (name)
 VALUES ('Clothes'), ('Footwear'), ('Watches');
 
-INSERT INTO brand (name, sold, logo, tagline)
-VALUES ('Raymond',2,'https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','This is raymod'),
-('Adidas',5,'https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','Buy from adidas'),
-('Reebook',3,'https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500','Reebook is best');
+INSERT INTO brand (name, logo)
+VALUES ('Raymond','https://i.ibb.co/SPXGxgq/Raymond.jpg'),
+('Puma','https://i.ibb.co/CJdcqx0/Puma.png'),
+('Nike','https://i.ibb.co/xMBcvv1/Nike.jpg'),
+('Allen Solly','https://i.ibb.co/QQQYhhC/Allen-Solly.png'),
+('Titan','https://i.ibb.co/ncSLyLt/Titan.png');
 
 INSERT INTO subCategory (name, categoryId, imageLink, type)
 VALUES 
