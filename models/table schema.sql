@@ -16,7 +16,6 @@ CREATE TABLE user (
 CREATE TABLE mall (
 	id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    imageLink VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -110,8 +109,12 @@ VALUES
 ('Formal',3,'https://i.ibb.co/SJSpGSF/Formal-women.jpg',0),
 ('Band',3,'https://i.ibb.co/wwNMKRV/Band-women.jpg',0);
 
-INSERT INTO mall (name, imageLink, location)
-VALUES ('Ambuja','https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png','Raipur');
+INSERT INTO mall (name, location)
+VALUES ('Ambuja Mall','Vidhan Sabha'),
+('36 City Mall','Vip Road'),
+('City Center Mall','Pandri'),
+('Sumeet','Devendra Nagar'),
+('Kishore Mall','Rajendra Nagar');
 
 INSERT INTO product (name, color, size, price, brandId, mallId, subCategoryId, imageLink, description)
 VALUES
