@@ -13,11 +13,6 @@ CREATE TABLE user (
     PRIMARY KEY (id)
 );
 
-
--- UPDATE user SET favourites = '["1","2"]' WHERE id = 1;
-
--- DELETE FROM user WHERE id = 3;
-
 CREATE TABLE mall (
 	id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
@@ -59,7 +54,6 @@ CREATE TABLE product (
     name VARCHAR(255) NOT NULL,
     color JSON DEFAULT NULL,
     size JSON DEFAULT NULL,
-    material JSON DEFAULT NULL,
     price INT NOT NULL,
     brandId INT NOT NULL,
     mallId INT NOT NULL,
@@ -93,14 +87,14 @@ VALUES ('Kurta',1,'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintag
 INSERT INTO mall (name, imageLink, location)
 VALUES ('Ambuja','https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png','Raipur');
 
-INSERT INTO product (name, color, size, material, price, brandId, mallId, subCategoryId, imageLink, description)
+INSERT INTO product (name, color, size, price, brandId, mallId, subCategoryId, imageLink, description)
 VALUES
-('Collet Pants', '["Red", "Black", "Yellow"]', '["S", "M", "L"]', '["Cotton", "Wool"]', 150, 1, 1, 1, 'https://i.ibb.co/C7WGVr0/1.png','This is the best jeans you will ever encounter'),
-('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', '["Cotton", "Wool"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', '["Cotton", "Wool"]', 100, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', '["Cotton", "Wool"]', 1500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', '["Cotton", "Wool"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Green", "Blue", "White", "Black"]', '["XS", "M", "L"]', '["Cotton", "Wool"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see');
+('Collet Pants', '["Red", "Black", "Yellow"]', '["S", "M", "L"]', 150, 1, 1, 1, 'https://i.ibb.co/C7WGVr0/1.png','This is the best jeans you will ever encounter'),
+('Shirt', '["Green", "Blue", "White", "Black"]', '["XL", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
+('Shirt', '["Green", "Blue", "White", "Black"]', '["XL", "M", "L"]', 100, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
+('Shirt', '["Green", "Blue", "White", "Black"]', '["XL", "M", "L"]', 1500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
+('Shirt', '["Green", "Blue", "White", "Black"]', '["M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
+('Shirt', '["Green", "Blue", "White", "Black"]', '["S", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see');
 
 SELECT * FROM product;
 SELECT subCat.id, cat.name AS catName, subCat.name AS subCatName, subCat.id, imageLink, subCat.type FROM category AS cat RIGHT JOIN subCategory AS subCat ON cat.id = subCat.categoryId;
