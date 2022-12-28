@@ -5,36 +5,49 @@ const getAllBrands = async (req, res) => {
         const getBrands = "SELECT * FROM brand";
         db.query(getBrands, [], async (err, data) => {
             if (err) {
-                return res.status(401).json({ error: "Something went wrong" });
+                return res.status(401).json({ error: "Something went wrong!! Please try again" });
             }
-            console.log(data);
             return res.status(200).json({ brands: data });
         });
     } catch (err) {
-        res.status(500).json({ error: "Something went wrong" });
+        res.status(500).json({ error: "Internal Server Error" });
     }
 };
 
 const getBrandProducts = async (req, res) => {
     try {
         const brandId = req.params.brandId;
-        const getProducts =
-            "SELECT brand.name AS brandName, product.imageLink, product.name, product.id, color, size, price FROM brand RIGHT JOIN product ON brand.id = product.brandId WHERE brand.id = ? ORDER BY id DESC";
-        db.query(getProducts, [brandId], async (err, data) => {
-            if (err) {
-                return res.status(401).json({ error: "Something went wrong" });
+        const getBrand = "SELECT * FROM brand WHERE id = ?";
+        db.query(getBrand, [brandId], async (e, d) => {
+            if (e) {
+                return res.status(401).json({ error: "Something went wrong!! Please try again" });
             }
-            const products = data.map((product) => {
-                return {
-                    ...product,
-                    color: JSON.parse(product.color),
-                    size: JSON.parse(product.size),
-                };
+            if (d.length === 0) {
+                return res.status(404).json({ error: "Brand does not exists" });
+            }
+            const getProducts =
+                "SELECT brand.name AS brandName, product.imageLink, product.name, product.id, color, size, price FROM brand RIGHT JOIN product ON brand.id = product.brandId WHERE brand.id = ? ORDER BY id DESC";
+            db.query(getProducts, [brandId], async (err, data) => {
+                if (err) {
+                    return res
+                        .status(401)
+                        .json({ error: "Something went wrong!! Please try again" });
+                }
+                if (data.length === 0) {
+                    return res.status(400).json({ error: "Sorry! No Products Found" });
+                }
+                const products = data.map((product) => {
+                    return {
+                        ...product,
+                        color: JSON.parse(product.color),
+                        size: JSON.parse(product.size),
+                    };
+                });
+                return res.status(200).json({ products: products });
             });
-            res.status(200).json({ products: products });
         });
     } catch (err) {
-        res.status(500).json({ error: "Something went wrong" });
+        res.status(500).json({ error: "Internal Server Error" });
     }
 };
 
