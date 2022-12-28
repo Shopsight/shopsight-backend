@@ -75,7 +75,11 @@ VALUES ('Raymond','https://i.ibb.co/SPXGxgq/Raymond.jpg'),
 ('Puma','https://i.ibb.co/CJdcqx0/Puma.png'),
 ('Nike','https://i.ibb.co/xMBcvv1/Nike.jpg'),
 ('Allen Solly','https://i.ibb.co/QQQYhhC/Allen-Solly.png'),
-('Titan','https://i.ibb.co/ncSLyLt/Titan.png');
+('Titan','https://i.ibb.co/ncSLyLt/Titan.png'),
+('Tommy Hilfiger','https://i.ibb.co/hCVTbcX/Tommy-Hilfiger-logo.jpg'),
+('Park Avenue','https://i.ibb.co/JyFwzcL/park-avenue.png'),
+('Calvin Kelin','https://i.ibb.co/q5ZyNk5/calvin.png'),
+('Allen Cooper','https://i.ibb.co/QnKvQCN/allen-cooper.png');
 
 INSERT INTO subCategory (name, categoryId, imageLink, type)
 VALUES 
