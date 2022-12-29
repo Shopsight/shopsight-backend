@@ -39,7 +39,8 @@ const getFavourites = async (req, res) => {
     try {
         const id = req.user.id;
         const findUser = "SELECT * FROM user WHERE id = ?";
-        const products = "SELECT * FROM product";
+        const products =
+            "SELECT product.id, product.name, price, product.imageLink, brand.name AS brandName FROM product LEFT JOIN brand ON product.brandId = brand.id";
         db.query(findUser, [id], (err, data) => {
             if (err) {
                 return res.status(401).json({ error: "Something went wrong" });

@@ -35,7 +35,7 @@ const getSubCategoryProducts = async (req, res) => {
                 return res.status(404).json({ error: "Category does not exists" });
             }
             const allSubCategoryProducts =
-                "SELECT subCat.name AS subCatName, product.imageLink, product.name, product.id, color, size, price FROM subCategory AS subCat RIGHT JOIN product ON subCat.id = product.subCategoryId WHERE subCat.id = ?";
+                "SELECT subCat.name AS subCatName, product.imageLink, product.name, product.id, color, size, price, brand.name as brandName FROM subCategory AS subCat RIGHT JOIN product ON subCat.id = product.subCategoryId LEFT JOIN brand on product.brandId = brand.id WHERE subCat.id = ?";
             db.query(allSubCategoryProducts, [subCategoryId], async (err, data) => {
                 if (err) {
                     return res
