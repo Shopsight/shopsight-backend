@@ -33,9 +33,6 @@ const getBrandProducts = async (req, res) => {
                         .status(401)
                         .json({ error: "Something went wrong!! Please try again" });
                 }
-                if (data.length === 0) {
-                    return res.status(400).json({ error: "Sorry! No Products Found" });
-                }
                 const products = data.map((product) => {
                     return {
                         ...product,
@@ -43,7 +40,7 @@ const getBrandProducts = async (req, res) => {
                         size: JSON.parse(product.size),
                     };
                 });
-                return res.status(200).json({ products: products });
+                return res.status(200).json({ brandName: d[0].name, products: products });
             });
         });
     } catch (err) {

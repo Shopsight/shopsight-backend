@@ -42,10 +42,7 @@ const getSubCategoryProducts = async (req, res) => {
                         .status(401)
                         .json({ error: "Something went wrong!! Please try again" });
                 }
-                if (data.length === 0) {
-                    return res.status(400).json({ error: "Sorry! No Products Found" });
-                }
-                return res.status(200).json({ products: data });
+                return res.status(200).json({ categoryName: d[0].name, products: data });
             });
         });
     } catch (err) {
