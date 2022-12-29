@@ -130,7 +130,7 @@ VALUES
 ('Men slim fit formal shirt', '["Red"]', '["S", "M", "L"]', 1150, 1, 4, 1, 'https://i.ibb.co/SNsfSW7/men-slim-fit-formal-Raymond-shirt-red.webp','Red solid formal shirt, has a spread collar, long sleeves, button placket, and straight hem'),
 ('Winter Red Jacket', '["Red"]', '["S", "M", "L"]', 1550, 8, 1, 9, 'https://i.ibb.co/4FYDRQZ/Women-jacket-red.webp','This is the best jeans you will ever encounter'),
 ('Winter Black Jacket', '["Black"]', '["XL", "M", "L"]', 1600, 1, 3, 9, 'https://i.ibb.co/JzBVqjk/Women-jacket-Black.jpg', 'One of the finest product you will ever see'),
-('Winter Blue Jacket', '["Blue"]', '["XL", "M", "L"]', 1100, 1, 1, 1, 'https://i.ibb.co/HV5CkXS/Women-jacket-blue.jpg', 'One of the finest product you will ever see'),
+('Winter Blue Jacket', '["Blue"]', '["XL", "M", "L"]', 1100, 1, 1, 9, 'https://i.ibb.co/HV5CkXS/Women-jacket-blue.jpg', 'One of the finest product you will ever see'),
 ('Sport Shoe Red', '["Red"]', '["XL", "M", "L"]', 1500, 2, 3, 11, 'https://i.ibb.co/9h7SBTS/Sportsshoe-red.jpg%22', 'One of the finest product you will ever see'),
 ('Sport Shoe Blue', '["Blue"]', '["M", "L"]', 500, 3, 1, 11, 'https://i.ibb.co/GJ8B36W/Sports-shoe-blue.jpg', 'One of the finest product you will ever see'),
 ('Sport Shoe Black', '["Black"]', '["S", "M", "L"]', 900, 1, 2, 11, 'https://i.ibb.co/5GQmx8b/Sports-shoes-black.jpg', 'One of the finest product you will ever see'),
