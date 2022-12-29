@@ -62,7 +62,7 @@ CREATE TABLE product (
     PRIMARY KEY (id),
     FOREIGN KEY (brandId) REFERENCES brand(id),
     FOREIGN KEY (mallId) REFERENCES mall(id),
-    FOREIGN KEY (subCategoryId) REFERENCES category(id)
+    FOREIGN KEY (subCategoryId) REFERENCES subCategory(id)
 );
 
 -- inserting values 
@@ -114,17 +114,27 @@ VALUES
 ('Band',3,'https://i.ibb.co/wwNMKRV/Band-women.jpg',0);
 
 INSERT INTO mall (name, location)
-VALUES ('Ambuja Mall','Vidhan Sabha'),
-('36 City Mall','Vip Road'),
-('City Center Mall','Pandri'),
+VALUES ('Shop 12 Ambuja Mall','Vidhan Sabha'),
+('Shop 9 36 City Mall','Vip Road'),
+('Shop 4 City Center Mall','Pandri'),
 ('Sumeet','Devendra Nagar'),
 ('Kishore Mall','Rajendra Nagar');
 
+-- DROP DATABASE shopsight;
+
 INSERT INTO product (name, color, size, price, brandId, mallId, subCategoryId, imageLink, description)
 VALUES
-('Collet Pants', '["Red", "Black", "Yellow"]', '["S", "M", "L"]', 150, 1, 1, 1, 'https://i.ibb.co/C7WGVr0/1.png','This is the best jeans you will ever encounter'),
-('Shirt', '["Red", "Blue", "White", "Black"]', '["XL", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Yellow", "Blue", "White", "Black"]', '["XL", "M", "L"]', 100, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Blue", "White", "Black"]', '["XL", "M", "L"]', 1500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Blue", "White", "Black"]', '["M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see'),
-('Shirt', '["Blue", "White", "Black"]', '["S", "M", "L"]', 500, 1, 1, 1, 'https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png', 'One of the finest product you will ever see');
+('Men slim fit formal shirt', '["Black"]', '["S", "M", "L"]', 1150, 7, 1, 1, 'https://i.ibb.co/yWwfwjs/men-slim-fit-formal-Park-Avenue-shirt-blue.jpg','Black solid formal shirt, has a spread collar, long sleeves, button placket, and straight hem'),
+('Men formal shirt', '["Black"]', '["XL", "M", "L"]', 1899, 8, 3, 1, 'https://i.ibb.co/vQM8WNK/men-slim-fit-formal-raymond-shirt-black.jpg', 'Black solid formal shirt, has a spread collar, button placket, a patch pocket, long sleeves, curved hem'),
+('Men slim fit formal shirt', '["Red"]', '["S", "M", "L"]', 1150, 7, 1, 1, 'https://i.ibb.co/5Whh0Wh/men-slim-fit-formal-Park-Avenue-shirt-ewd.webp','Red solid formal shirt, has a spread collar, long sleeves, button placket, and straight hem'),
+('Men slim fit formal shirt', '["Red"]', '["S", "M", "L"]', 1150, 1, 4, 1, 'https://i.ibb.co/SNsfSW7/men-slim-fit-formal-Raymond-shirt-red.webp','Red solid formal shirt, has a spread collar, long sleeves, button placket, and straight hem'),
+('Winter Red Jacket', '["Red"]', '["S", "M", "L"]', 1550, 8, 1, 9, 'https://i.ibb.co/4FYDRQZ/Women-jacket-red.webp','This is the best jeans you will ever encounter'),
+('Winter Black Jacket', '["Black"]', '["XL", "M", "L"]', 1600, 1, 3, 9, 'https://i.ibb.co/JzBVqjk/Women-jacket-Black.jpg', 'One of the finest product you will ever see'),
+('Winter Blue Jacket', '["Blue"]', '["XL", "M", "L"]', 1100, 1, 1, 1, 'https://i.ibb.co/HV5CkXS/Women-jacket-blue.jpg', 'One of the finest product you will ever see'),
+('Sport Shoe Red', '["Red"]', '["XL", "M", "L"]', 1500, 2, 3, 11, 'https://i.ibb.co/9h7SBTS/Sportsshoe-red.jpg%22', 'One of the finest product you will ever see'),
+('Sport Shoe Blue', '["Blue"]', '["M", "L"]', 500, 3, 1, 11, 'https://i.ibb.co/GJ8B36W/Sports-shoe-blue.jpg', 'One of the finest product you will ever see'),
+('Sport Shoe Black', '["Black"]', '["S", "M", "L"]', 900, 1, 2, 11, 'https://i.ibb.co/5GQmx8b/Sports-shoes-black.jpg', 'One of the finest product you will ever see'),
+('Men slim fit formal Jeams', '["Black"]', '["S", "M", "L"]', 1550, 1, 5, 5, 'https://i.ibb.co/8rY6qbV/men-slim-fit-jeans-raymond-jeans-blue.jpg','5-pocket mid-rise jeans, clean look, light fade, has a button and zip closure, and waistband with belt loops'),
+('Men slim fit formal Jeams', '["Red"]', '["S", "M", "L"]', 1690, 7,4, 5, 'https://i.ibb.co/2ZLH2wq/men-slim-fit-jeans-Park-Avenue-jeans-blue.jpg','5-pocket mid-rise jeans, clean look, light fade, has a button and zip closure, and waistband with belt loops'),
+('Men slim fit formal Jeams', '["Blue"]', '["S", "M", "L"]', 1550, 9,3, 5, 'https://i.ibb.co/QK9dJ7v/men-slim-fit-jeans-allen-jeans-blue.webp','5-pocket mid-rise jeans, clean look, light fade, has a button and zip closure, and waistband with belt loops'),
+('Men slim fit formal Jeams', '["Blue"]', '["S", "M", "L"]', 1950, 8, 2, 5, 'https://i.ibb.co/tqSgxSh/men-slim-fit-jeans-calvin-jeans-blue.jpg','5-pocket mid-rise jeans, clean look, light fade, has a button and zip closure, and waistband with belt loops');
